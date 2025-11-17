@@ -1,6 +1,12 @@
 import kagglehub
+import os
 
-# Download latest version
-path = kagglehub.dataset_download("dansbecker/hot-dog-not-hot-dog")
+# Download into the current folder
+target_path = os.path.abspath(".")
 
-print("Path to dataset files:", path)
+path = kagglehub.dataset_download(
+    "dansbecker/hot-dog-not-hot-dog",
+    path=target_path
+)
+
+print("Dataset saved to:", path)
