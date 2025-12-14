@@ -1,1 +1,35 @@
+# Environment
+.env
+.env.local
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+.venv/
+
+# Model files (too large for git)
+*.keras
+*.h5
+*.tflite
+*.onnx
+hotdog_model/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Dataset (too large for git)
 dataset/

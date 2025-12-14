@@ -1,0 +1,441 @@
+/* 
+ * Hot Dog or Not Hot Dog - Styles
+ * A tribute to Jian Yang's SeeFood app from HBO's Silicon Valley
+ * 
+ * Design: Dark theme with neon green accents
+ * Inspired by Silicon Valley tech startup aesthetics
+ */
+
+/* ==================== CSS Variables ==================== */
+:root {
+    /* Colors */
+    --color-bg: #0a0a0f;
+    --color-bg-secondary: #12121a;
+    --color-bg-card: rgba(20, 20, 30, 0.8);
+    --color-neon: #00ff88;
+    --color-neon-dim: rgba(0, 255, 136, 0.3);
+    --color-neon-glow: rgba(0, 255, 136, 0.5);
+    --color-hotdog: #ff6b35;
+    --color-hotdog-glow: rgba(255, 107, 53, 0.5);
+    --color-nothotdog: #ff3366;
+    --color-nothotdog-glow: rgba(255, 51, 102, 0.5);
+    --color-text: #ffffff;
+    --color-text-dim: rgba(255, 255, 255, 0.6);
+    --color-border: rgba(255, 255, 255, 0.1);
+    
+    /* Typography */
+    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+    
+    /* Border Radius */
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-full: 9999px;
+    
+    /* Transitions */
+    --transition-fast: 0.15s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+}
+
+/* ==================== Reset & Base ==================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family);
+    background: var(--color-bg);
+    color: var(--color-text);
+    min-height: 100vh;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Background gradient effect */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(ellipse at 20% 20%, rgba(0, 255, 136, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 80%, rgba(255, 107, 53, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* ==================== Container ==================== */
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: var(--spacing-lg);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ==================== Header ==================== */
+.header {
+    text-align: center;
+    padding: var(--spacing-xl) 0;
+}
+
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+}
+
+.logo-emoji {
+    font-size: 4rem;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: 900;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+}
+
+.title-hot {
+    color: var(--color-hotdog);
+    text-shadow: 0 0 30px var(--color-hotdog-glow);
+}
+
+.title-or {
+    color: var(--color-text-dim);
+    font-weight: 300;
+    font-size: 1.2rem;
+    margin: 0 0.3em;
+}
+
+.title-not {
+    color: var(--color-nothotdog);
+    text-shadow: 0 0 30px var(--color-nothotdog-glow);
+}
+
+.subtitle {
+    color: var(--color-text-dim);
+    font-size: 0.9rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.tagline {
+    color: var(--color-neon);
+    font-size: 1rem;
+    font-style: italic;
+    text-shadow: 0 0 20px var(--color-neon-glow);
+}
+
+/* ==================== Upload Zone ==================== */
+.upload-section {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: var(--spacing-md) 0;
+}
+
+.upload-zone {
+    width: 100%;
+    min-height: 250px;
+    border: 2px dashed var(--color-border);
+    border-radius: var(--radius-lg);
+    background: var(--color-bg-card);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+}
+
+.upload-zone::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--color-neon-dim) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+}
+
+.upload-zone:hover {
+    border-color: var(--color-neon);
+    box-shadow: 
+        0 0 30px var(--color-neon-dim),
+        inset 0 0 30px var(--color-neon-dim);
+}
+
+.upload-zone:hover::before {
+    opacity: 1;
+}
+
+.upload-zone.drag-over {
+    border-color: var(--color-neon);
+    transform: scale(1.02);
+    box-shadow: 
+        0 0 50px var(--color-neon-dim),
+        inset 0 0 50px var(--color-neon-dim);
+}
+
+.upload-content {
+    text-align: center;
+    z-index: 1;
+}
+
+.upload-icon {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-sm);
+    opacity: 0.8;
+}
+
+.upload-text {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-xs);
+}
+
+.upload-subtext {
+    font-size: 0.9rem;
+    color: var(--color-text-dim);
+}
+
+/* ==================== Preview Section ==================== */
+.preview-section {
+    padding: var(--spacing-md) 0;
+}
+
+.preview-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.preview-image {
+    max-width: 100%;
+    max-height: 300px;
+    border-radius: var(--radius-md);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.analyze-btn {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-bg);
+    background: var(--color-neon);
+    border: none;
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    box-shadow: 0 0 30px var(--color-neon-dim);
+}
+
+.analyze-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 50px var(--color-neon-glow);
+}
+
+.analyze-btn:active {
+    transform: translateY(0);
+}
+
+/* ==================== Loading ==================== */
+.loading-section {
+    padding: var(--spacing-xl) 0;
+    text-align: center;
+}
+
+.loading-spinner {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto var(--spacing-md);
+    border: 3px solid var(--color-border);
+    border-top-color: var(--color-neon);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.loading-text {
+    color: var(--color-text-dim);
+    font-size: 1.1rem;
+}
+
+/* ==================== Result Section ==================== */
+.result-section {
+    padding: var(--spacing-xl) 0;
+    text-align: center;
+}
+
+.result-card {
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-lg);
+    background: var(--color-bg-card);
+    backdrop-filter: blur(10px);
+    margin-bottom: var(--spacing-lg);
+    animation: resultReveal 0.5s ease;
+}
+
+@keyframes resultReveal {
+    from {
+        opacity: 0;
+        transform: scale(0.8) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.result-card.hotdog {
+    border: 2px solid var(--color-hotdog);
+    box-shadow: 
+        0 0 50px var(--color-hotdog-glow),
+        inset 0 0 30px var(--color-hotdog-glow);
+}
+
+.result-card.not-hotdog {
+    border: 2px solid var(--color-nothotdog);
+    box-shadow: 
+        0 0 50px var(--color-nothotdog-glow),
+        inset 0 0 30px var(--color-nothotdog-glow);
+}
+
+.result-emoji {
+    font-size: 5rem;
+    margin-bottom: var(--spacing-sm);
+    animation: bounce 0.5s ease;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+.result-text {
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin-bottom: var(--spacing-sm);
+    letter-spacing: -0.02em;
+}
+
+.result-card.hotdog .result-text {
+    color: var(--color-hotdog);
+    text-shadow: 0 0 30px var(--color-hotdog-glow);
+}
+
+.result-card.not-hotdog .result-text {
+    color: var(--color-nothotdog);
+    text-shadow: 0 0 30px var(--color-nothotdog-glow);
+}
+
+.result-confidence {
+    color: var(--color-text-dim);
+    font-size: 1rem;
+}
+
+.try-again-btn {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+    background: transparent;
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+}
+
+.try-again-btn:hover {
+    border-color: var(--color-neon);
+    color: var(--color-neon);
+    box-shadow: 0 0 20px var(--color-neon-dim);
+}
+
+/* ==================== Footer ==================== */
+.footer {
+    text-align: center;
+    padding: var(--spacing-lg) 0;
+    color: var(--color-text-dim);
+    font-size: 0.85rem;
+    margin-top: auto;
+}
+
+.footer-quote {
+    font-style: italic;
+    margin-top: var(--spacing-xs);
+    opacity: 0.7;
+}
+
+/* ==================== Utility Classes ==================== */
+.hidden {
+    display: none !important;
+}
+
+/* ==================== Responsive ==================== */
+@media (max-width: 480px) {
+    .container {
+        padding: var(--spacing-md);
+    }
+    
+    .title {
+        font-size: 1.5rem;
+    }
+    
+    .logo-emoji {
+        font-size: 3rem;
+    }
+    
+    .upload-zone {
+        min-height: 200px;
+    }
+    
+    .result-text {
+        font-size: 2rem;
+    }
+    
+    .result-emoji {
+        font-size: 4rem;
+    }
+}

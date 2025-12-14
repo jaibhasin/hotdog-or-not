@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hot Dog or Not Hot Dog - A tribute to Jian Yang's SeeFood app from HBO's Silicon Valley">
+    <title>🌭 Hot Dog or Not Hot Dog</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo-container">
+                <span class="logo-emoji">🌭</span>
+                <h1 class="title">
+                    <span class="title-hot">Hot Dog</span>
+                    <span class="title-or">or</span>
+                    <span class="title-not">Not Hot Dog</span>
+                </h1>
+            </div>
+            <p class="subtitle">A tribute to Jian Yang's SeeFood app</p>
+            <p class="tagline">"It's like Shazam... for food!"</p>
+        </header>
+
+        <!-- Upload Zone -->
+        <div class="upload-section">
+            <div id="upload-zone" class="upload-zone">
+                <div class="upload-content">
+                    <div class="upload-icon">📷</div>
+                    <p class="upload-text">Drop an image here</p>
+                    <p class="upload-subtext">or click to browse</p>
+                </div>
+                <input type="file" id="file-input" accept="image/*" hidden>
+            </div>
+        </div>
+
+        <!-- Preview Section -->
+        <div id="preview-section" class="preview-section hidden">
+            <div class="preview-container">
+                <img id="preview-image" class="preview-image" alt="Uploaded image preview">
+                <button id="analyze-btn" class="analyze-btn">
+                    <span class="btn-text">Analyze</span>
+                    <span class="btn-icon">🔍</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Loading -->
+        <div id="loading-section" class="loading-section hidden">
+            <div class="loading-spinner"></div>
+            <p class="loading-text">Analyzing...</p>
+        </div>
+
+        <!-- Result Section -->
+        <div id="result-section" class="result-section hidden">
+            <div id="result-card" class="result-card">
+                <div id="result-emoji" class="result-emoji">🌭</div>
+                <h2 id="result-text" class="result-text">Hot Dog</h2>
+                <p id="result-confidence" class="result-confidence">98% confident</p>
+            </div>
+            <button id="try-again-btn" class="try-again-btn">Try Another Image</button>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>
+                Inspired by <strong>HBO's Silicon Valley</strong> S4E4
+            </p>
+            <p class="footer-quote">
+                "What would you say if I told you there is an app on the market..."
+            </p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
