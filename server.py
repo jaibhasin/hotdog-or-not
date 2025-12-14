@@ -135,12 +135,12 @@ async def predict(file: UploadFile = File(...)):
         
         # Interpret results (0 = hotdog, 1 = nothotdog based on folder order)
         # Lower values mean "hotdog", higher values mean "not hotdog"
-        is_hotdog = prediction < 0.5
-        confidence = 1 - prediction if is_hotdog else prediction
+        is_hotdog = bool(prediction < 0.5)
+        confidence = float(1 - prediction if is_hotdog else prediction)
         
         result = {
             "prediction": "Hot Dog" if is_hotdog else "Not Hot Dog",
-            "confidence": float(confidence),
+            "confidence": confidence,
             "raw_score": float(prediction),
             "is_hotdog": is_hotdog
         }
