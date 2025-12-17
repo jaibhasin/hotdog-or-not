@@ -4,8 +4,7 @@ A tribute to **Jian Yang's SeeFood app** from HBO's Silicon Valley.
 
 > "What would you say if I told you there is an app on the market that tells you if you have a hot dog or not a hot dog?"
 
-![Silicon Valley]
-(https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExdGF1NnlsNThjY2FlNTk1d3lqZGlhcThlcnFoamM2bWJzYjB6dDR4ciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l0Iy9iqThC2ueLTkA/giphy.gif)
+![Silicon Valley](https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExdGF1NnlsNThjY2FlNTk1d3lqZGlhcThlcnFoamM2bWJzYjB6dDR4ciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l0Iy9iqThC2ueLTkA/giphy.gif)
 
 ## 🚀 Quick Start
 
