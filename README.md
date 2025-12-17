@@ -14,7 +14,19 @@ A tribute to **Jian Yang's SeeFood app** from HBO's Silicon Valley.
 pip install -r requirements.txt
 ```
 
-### 2. Train the Model
+### 2. Start the Server
+
+```bash
+python server.py
+```
+
+Then open http://localhost:8000 in your browser!
+
+**Note:** A pre-trained model (`hotdog_model.keras`) is included, so you can start using the app immediately!
+
+### (Optional) Train Your Own Model
+
+Want to train the model yourself? Run:
 
 ```bash
 python train_model.py
@@ -27,31 +39,18 @@ This will:
 
 **Expected training time:** ~10-15 minutes on CPU, ~2-3 minutes with GPU
 
-### 3. Start the Server
-
-```bash
-python server.py
-```
-
-Then open http://localhost:8000 in your browser!
+**Note:** You'll need to download the dataset first (see Dataset Setup below).
 
 ## 📁 Project Structure
 
 ```
-├── dataset/
-│   ├── train/
-│   │   ├── hotdog/      # ~2,600 hot dog images
-│   │   └── nothotdog/   # ~2,600 non-hot dog images
-│   └── test/
-│       ├── hotdog/      # ~400 hot dog images
-│       └── nothotdog/   # ~250 non-hot dog images
-├── train_model.py       # Model training script
+├── train_model.py       # Model training script (optional)
 ├── server.py            # FastAPI backend
 ├── index.html           # Frontend HTML
 ├── styles.css           # Premium styling
 ├── app.js               # Frontend logic
 ├── requirements.txt     # Python dependencies
-└── hotdog_model.keras   # Trained model (after training)
+└── hotdog_model.keras   # Pre-trained model (included!)
 ```
 
 ## 🛠️ Tech Stack
@@ -63,9 +62,9 @@ Then open http://localhost:8000 in your browser!
 | Backend | FastAPI |
 | Frontend | HTML/CSS/JS |
 
-## 📊 Expected Results
+## 📊 Model Performance
 
-The model should achieve **>90% accuracy** on the test set after training.
+The included pre-trained model achieves **>90% accuracy** on the test set.
 
 ## 🎨 Features
 
@@ -100,6 +99,27 @@ Response:
   "is_hotdog": true
 }
 ```
+
+## 📦 Dataset Setup (Optional - For Training)
+
+If you want to retrain the model, you'll need the dataset:
+
+1. Download from Kaggle:
+   - [Hot Dog Dataset 1](https://www.kaggle.com/datasets/dansbecker/hot-dog-not-hot-dog) (~1,000 images)
+   - [Hot Dog Dataset 2](https://www.kaggle.com/datasets/thedatasith/hotdog-nothotdog/data) (~4,800 images)
+
+2. Organize into this structure:
+```
+dataset/
+├── train/
+│   ├── hotdog/
+│   └── nothotdog/
+└── test/
+    ├── hotdog/
+    └── nothotdog/
+```
+
+3. Run `python train_model.py`
 
 ## 🙏 Credits
 
