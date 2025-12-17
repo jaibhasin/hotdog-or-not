@@ -1,4 +1,3 @@
 https://www.kaggle.com/datasets/dansbecker/hot-dog-not-hot-dog #1000 images
 https://www.kaggle.com/datasets/thedatasith/hotdog-nothotdog/data #4800
 
-https://claude.ai/chat/9b66bc86-97e0-456e-b055-4dd13c90f715
